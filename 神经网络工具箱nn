@@ -1,0 +1,28 @@
+本章介绍的nn模块，是构建于autograd之上的神经网络模块。torch.nn的核心数据结构是Module，它是一个抽象的概念，既可以表示神经网络中的某个层(layer)，也可以表示一个包含很多层的神经网络。
+不具备学习参数的层使用nn.functional，当存在可学习参数时使用nn.Module
+1、卷积层——nn.Conv2d(
+in_channels, # int
+out_channels,
+kernel_size,# int or tuple
+stride,# int or tuple
+padding,
+bias=True,# bool
+)
+2、池化层——nn.AvgPool2d(
+kernel_size,
+stride=None,
+padding=0,
+...
+)，nn.MaxPool2d()等
+3、激活函数——nn.ReLU()、nn.LeakyReLU(negative_slope=0.01)、nn.sigmoid()、nn.Softmax()...
+4、归一化层——nn.BatchNorm2d(
+num_features, 
+eps=1e-05, 
+momentum=0.1,
+ affine=True# 一个布尔值，当设为true，给该层添加可学习的仿射变换参数
+)
+5、线性层——nn.Linear(in_features, out_features, bias=True)
+6、Dropout层——nn.Dropout(
+p=0.5,# 将元素置0的概率，默认值：0.5
+ inplace=False）
+7、逆卷积层——nn.ConvTranspose2d(in_channels, out_channels, kernel_size, stride=1, padding=0, output_padding=0, groups=1, bias=True)
